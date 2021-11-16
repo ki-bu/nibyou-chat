@@ -1,0 +1,11 @@
+{
+  "name": "chat-server",
+  "version": "1.0.0",
+  "description": "End-to-End encrypted Patient/Practitioner Communication Platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lucakiebel <lucakiebel@nibyou.com>",
+  "license": "AGPL-3.0"
+}
