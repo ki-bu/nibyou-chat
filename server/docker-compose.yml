@@ -1,0 +1,23 @@
+services:
+  app:
+    image: node:lts
+    command: sh -c "npm install && npm start"
+    ports:
+      - 8000:8000
+    working_dir: /nibyou
+    volumes:
+      - ./:/nibyou
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=toor
+    volumes:
+      - /var/mongo:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
