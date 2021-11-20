@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2021. K&B Software Solutions
+ * Licensed to K&B Software Solutions under one or more contributor license agreements. See the LICENSE
+ * file distributed with this work for additional information regarding licensing.
+ *
+ */
+
 import {Document, Model, Schema, Query, model, ObjectId} from "mongoose";
 
 interface User {
@@ -22,6 +29,7 @@ interface User {
     createdAt?: Date;
     /**DateTime the account was updated at*/
     updatedAt?: Date;
+    userType?: string;
 }
 
 const schema = new Schema<User>({
@@ -34,7 +42,8 @@ const schema = new Schema<User>({
     _enc_dataKeys: {type: [Object], required: true},
     avatar: {type: String, required: false},
     createdAt: {type: Date, required: false, default: () => new Date()},
-    updatedAt: {type: Date, required: false, default: () => new Date()}
+    updatedAt: {type: Date, required: false, default: () => new Date()},
+    userType: {type: String, required: false, default: 'patient'}
 });
 
 interface UserQueryHelpers {

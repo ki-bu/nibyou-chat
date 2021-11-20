@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2021. K&B Software Solutions
+ * Licensed to K&B Software Solutions under one or more contributor license agreements. See the LICENSE
+ * file distributed with this work for additional information regarding licensing.
+ *
+ */
+
+
+
 import * as fs from "fs";
 import jwt from "jsonwebtoken";
 import User from "../models/User";
@@ -50,18 +59,7 @@ const isAuthenticated = (req: any, res: any, next: any) => {
     verify(token)
         .then(async (decoded:any) => {
             req.authUser = decoded as AuthUser
-            try {
-                req.user = await User.find().byAccId((decoded as AuthUser).id).orFail(() => Error('User not found'));
-                if (!req.user.verified) {
-                    return res.status(401).send({
-                        message: "User not verified"
-                    });
-                }
-            } catch (e) {
-                return res.status(401).send({
-                    message: "Invalid token"
-                });
-            }
+            req.user = await User.find().byAccId((decoded as AuthUser).id);
             next();
         })
         .catch(() => {

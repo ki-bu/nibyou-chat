@@ -1,0 +1,6 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="notice" value="Copyright (c) &amp;#36;originalComment.match(&quot;Copyright \(c\) (\d+)&quot;, 1, &quot;-&quot;)&amp;#36;today.year. K&amp;amp;B Software Solutions&#10;Licensed to K&amp;amp;B Software Solutions under one or more contributor license agreements. See the LICENSE &#10;file distributed with this work for additional information regarding licensing.&#10;" />
+    <option name="myName" value="Nibyou" />
+  </copyright>
+</component>
